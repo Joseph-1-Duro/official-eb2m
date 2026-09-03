@@ -1,0 +1,19 @@
+// Components — Card
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.card {
+  background: $color-surface;
+  border: 1px solid $color-border;
+  border-radius: $radius-lg;
+  padding: $space-4;
+
+  &__title {
+    font-size: $font-size-xl;
+    color: $color-header;
+  }
+
+  &__body {
+    color: $color-paragraphs;
+  }
+}

@@ -1,0 +1,52 @@
+// Layout — Site Header (BEM: site-header)
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: $space-4;
+  min-height: $header-height;
+  padding-block: $space-2;
+  padding-inline: $container-padding;
+  width: 100vw;
+  max-width: 100%;
+  background: $color-bg-paper;
+  border-bottom: 1px solid $color-border-light;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: $z-header;
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: $space-3;
+  }
+
+  // Contact link styled as ghost button variant
+  &__cta {
+    display: none;
+    gap: $space-1;
+    padding: $space-2 $space-4;
+    border: 1px solid $color-brand;
+    border-radius: $radius-sm;
+    color: $color-brand;
+    font-size: $font-size-sm;
+    font-weight: 600;
+    transition: background $transition-fast, color $transition-fast;
+
+    @include interactive {
+      background: $color-brand;
+      color: $color-surface;
+    }
+
+    @include respond-to('md') {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}

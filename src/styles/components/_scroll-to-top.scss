@@ -1,0 +1,35 @@
+// Components — Scroll To Top (BEM: scroll-top)
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.scroll-top {
+  position: fixed;
+  right: $space-4;
+  bottom: $space-4;
+  z-index: $z-overlay;
+  @include flex-center;
+  width: 2.75rem;
+  height: 2.75rem;
+  background: $color-header;
+  color: $color-surface;
+  border: 0;
+  border-radius: $radius-full;
+  box-shadow: 0 6px 16px rgba($color-ink, 0.22);
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(0.5rem);
+  transition: opacity $transition-base, visibility $transition-base, transform $transition-base, background $transition-fast;
+
+  @include interactive {
+    background: $color-brand-dark;
+    box-shadow: 0 10px 24px rgba($color-ink, 0.3);
+  }
+
+  // Visible state — toggled via JS once the user scrolls past the threshold
+  &--visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+}

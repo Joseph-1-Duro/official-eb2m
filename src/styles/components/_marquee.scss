@@ -1,0 +1,35 @@
+// Components — Marquee (BEM: marquee + track)
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.marquee {
+  width: 100vw;
+  max-width: 100%;
+  margin-inline: calc(50% - 50vw);
+  margin-block: $space-5;
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+  padding-block: $space-5;
+  background: $color-bg-paper;
+  color: $color-header;
+}
+
+.track {
+  will-change: transform;
+  width: max-content;
+  display: inline-flex;
+  align-items: center;
+  gap: $space-4;
+}
+
+.track p {
+  font-weight: 600;
+  font-size: clamp(3.125rem, 0.83rem + 9.17vw, 10rem);
+  padding-inline-end: $space-4;
+  flex-shrink: 0;
+  width: auto;
+  max-width: none;
+  line-height: 1.1;
+  color: $color-header;
+}

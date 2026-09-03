@@ -1,0 +1,81 @@
+// Components — Member Grid (BEM: member-grid) — members listing section
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.member-grid {
+  background: $color-surface;
+  padding-block: $space-7;
+
+  &__inner {
+    @include container;
+  }
+
+  &__title {
+    @include text-heading(2);
+    color: $color-header;
+    margin-bottom: $space-6;
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+    gap: $space-5;
+  }
+
+  &__card {
+    display: block;
+    background: $color-surface;
+    overflow: hidden;
+    border: 1px solid $color-border-light;
+    border-radius: $radius-sm;
+    box-shadow: 0 4px 14px rgba($color-ink, 0.08);
+    transition: border-color $transition-fast, transform $transition-fast, box-shadow $transition-fast;
+
+    @include interactive {
+      border-color: $color-brand;
+      transform: translateY(-2px);
+    }
+
+    &:focus-visible {
+      outline: 2px solid $color-brand;
+      outline-offset: 2px;
+    }
+  }
+
+  &__media {
+    position: relative;
+    aspect-ratio: 1;
+    background: $color-paper;
+  }
+
+  &__image {
+    object-fit: cover;
+  }
+
+  &__body {
+    padding: $space-4;
+  }
+
+  &__name {
+    font-family: var(--font-playfair);
+    font-weight: $font-weight-bold;
+    color: $color-header;
+  }
+
+  &__role {
+    font-size: $font-size-sm;
+    color: $color-muted;
+  }
+
+  &__set {
+    display: inline-flex;
+    margin-top: $space-2;
+    padding: $space-1 $space-3;
+    border: 1px solid $color-border;
+    border-radius: $radius-full;
+    font-size: $font-size-xs;
+    font-weight: $font-weight-semibold;
+    letter-spacing: $tracking-wide;
+    color: $color-muted;
+  }
+}

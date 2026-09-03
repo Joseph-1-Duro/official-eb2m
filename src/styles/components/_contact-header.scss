@@ -1,0 +1,81 @@
+// Components — Contact Header (BEM: contact-header)
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.contact-header {
+  background: $color-bg-paper;
+  padding-block: $space-7;
+  overflow: hidden;
+
+  @include respond-to('md') {
+    padding-block: $space-8;
+  }
+
+  &__inner {
+    @include container;
+    display: flex;
+    flex-direction: column;
+    gap: $space-6;
+
+    @include respond-to('md') {
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: $space-8;
+    }
+  }
+
+  &__intro {
+    display: flex;
+    flex-direction: column;
+    gap: $space-3;
+    max-width: $measure-narrow;
+  }
+
+  &__eyebrow {
+    @include text-eyebrow;
+  }
+
+  &__title {
+    @include text-heading(2);
+    color: $color-header;
+  }
+
+  &__copy {
+    @include text-body;
+    color: $color-muted;
+  }
+
+  &__channels {
+    display: flex;
+    flex-direction: column;
+    gap: $space-4;
+    list-style: none;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: $space-3;
+  }
+
+  &__icon {
+    flex-shrink: 0;
+    color: $color-gold;
+  }
+
+  &__link {
+    font-size: $font-size-base;
+    color: $color-paragraphs;
+    transition: color $transition-fast;
+
+    @include interactive {
+      color: $color-brand;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $color-brand;
+      outline-offset: 2px;
+    }
+  }
+}

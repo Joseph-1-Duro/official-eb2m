@@ -1,0 +1,83 @@
+// Components — Contact Form (BEM: contact-form)
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.contact-form {
+  background: $color-bg-paper;
+  padding-block: $space-7;
+
+  @include respond-to('md') {
+    padding-block: $space-8;
+  }
+
+  &__inner {
+    @include container;
+  }
+
+  &__form {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: $space-3;
+
+    @include respond-to('md') {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+    gap: $space-1;
+
+    &--half {
+      grid-column: 1 / -1;
+
+      @include respond-to('md') {
+        grid-column: span 1;
+      }
+    }
+
+    &--full {
+      grid-column: 1 / -1;
+    }
+  }
+
+  &__label {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    color: $color-muted;
+    cursor: pointer;
+  }
+
+  &__input,
+  &__textarea {
+    width: 100%;
+    padding: $space-2 $space-3;
+    border: 1px solid $color-border;
+    border-radius: $radius-sm;
+    font-family: var(--font-jakarta);
+    font-size: $font-size-base;
+    color: $color-ink;
+    background: $color-surface;
+    transition: border-color $transition-fast, box-shadow $transition-fast;
+
+    @include interactive {
+      border-color: $color-brand;
+    }
+  }
+
+  &__textarea {
+    resize: none;
+  }
+
+  &__error {
+    font-size: $font-size-sm;
+    color: $color-brand;
+  }
+
+  &__submit {
+    grid-column: 1 / -1;
+    width: 100%;
+    gap: $space-2;
+  }
+}

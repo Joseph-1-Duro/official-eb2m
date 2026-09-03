@@ -1,0 +1,131 @@
+// Components — Members About (BEM: members-about)
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.members-about {
+  background: $color-bg-paper;
+  padding-block: $space-7;
+  border-top: 1px solid $color-border-light;
+
+  @include respond-to('md') {
+    padding-block: $space-8;
+  }
+
+  &__inner {
+    @include container;
+    display: flex;
+    flex-direction: column;
+    gap: $space-6;
+  }
+
+  // Header row: mobile stacks above content, desktop splits into row
+  &__header {
+    display: flex;
+    flex-direction: column;
+    gap: $space-4;
+    flex: 1;
+
+    @include respond-to('lg') {
+      flex-direction: row;
+      gap: $space-8;
+      align-items: flex-start;
+    }
+  }
+
+  &__title {
+    @include text-heading(2);
+    color: $color-header;
+    flex-shrink: 0;
+
+    @include respond-to('lg') {
+      flex: 0 0 32%;
+      max-width: 28rem;
+    }
+  }
+
+  &__copy {
+    @include text-body-long;
+    color: $color-muted;
+    flex: 1;
+
+    @include respond-to('lg') {
+      max-width: $measure-narrow;
+    }
+  }
+
+  // Second paragraph sits below, offset on desktop to create stagger under h2
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: $space-5;
+
+    @include respond-to('lg') {
+      flex-direction: row;
+      gap: $space-8;
+      align-items: flex-start;
+    }
+  }
+
+  // Spacer mirrors title width on desktop so second copy aligns under first copy,
+  // but sits visually below the h2 (staggered depth)
+  &__spacer {
+    display: none;
+
+    @include respond-to('lg') {
+      display: block;
+      flex: 0 0 32%;
+      max-width: 28rem;
+    }
+  }
+
+  &__copy--offset {
+    @include text-body-long;
+    color: $color-muted;
+
+    @include respond-to('lg') {
+      max-width: $measure-narrow;
+      margin-top: $space-3;
+    }
+  }
+
+  &__main {
+    display: flex;
+    flex-direction: column;
+    gap: $space-5;
+    flex: 1;
+
+    @include respond-to('lg') {
+      max-width: $measure-narrow;
+    }
+  }
+
+  &__cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: $space-1;
+    align-self: flex-start;
+    padding: $space-3 $space-5;
+    background: $color-brand;
+    color: $color-surface;
+    border-radius: $radius-sm;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-semibold;
+    line-height: 1;
+    transition: background $transition-fast, transform $transition-fast;
+
+    @include interactive {
+      background: $color-brand-dark;
+      transform: translateY(-1px);
+    }
+
+    &:focus-visible {
+      outline: 2px solid $color-brand;
+      outline-offset: 2px;
+    }
+  }
+
+  &__cta-icon {
+    flex-shrink: 0;
+  }
+}

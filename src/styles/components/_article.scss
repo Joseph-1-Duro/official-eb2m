@@ -1,0 +1,228 @@
+// Components — Article (BEM: article)
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.article {
+  @include container;
+  padding-block: $space-7;
+
+  @include respond-to('md') {
+    padding-block: $space-8;
+  }
+
+  &__back {
+    display: inline-flex;
+    align-items: center;
+    gap: $space-1;
+    font-size: $font-size-sm;
+    color: $color-muted;
+    margin-bottom: $space-6;
+
+    @include interactive {
+      color: $color-brand;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $color-brand;
+      outline-offset: 2px;
+    }
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    gap: $space-3;
+    margin-bottom: $space-6;
+    max-width: $measure-base;
+  }
+
+  &__eyebrow {
+    @include text-eyebrow;
+  }
+
+  &__title {
+    @include text-heading(2);
+    color: $color-header;
+  }
+
+  &__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $space-3;
+    font-size: $font-size-xs;
+    color: $color-muted;
+  }
+
+  &__body {
+    .article__h2 {
+      @include text-heading(2);
+      max-width: $measure-base;
+      color: $color-header;
+      margin-top: $space-6;
+      margin-bottom: $space-3;
+    }
+
+    .article__h3 {
+      @include text-heading(3);
+      max-width: $measure-base;
+      color: $color-header;
+      margin-top: $space-5;
+      margin-bottom: $space-3;
+    }
+
+    .article__p {
+      @include text-body-long;
+      color: $color-paragraphs;
+      margin-bottom: $space-4;
+    }
+
+    .article__quote {
+      max-width: $measure-base;
+      border-left: 3px solid $color-gold;
+      padding-left: $space-4;
+      margin-block: $space-5;
+      font-style: italic;
+      color: $color-muted;
+    }
+
+    a {
+      color: $color-brand;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+
+      @include interactive {
+        color: $color-brand-dark;
+      }
+    }
+
+    hr {
+      max-width: $measure-base;
+      border: none;
+      border-top: 1px solid $color-border-light;
+      margin-block: $space-6;
+    }
+  }
+
+  // Spans the full article container width (the body no longer constrains
+  // it), matching the `container` mixin used across the site.
+  &__video {
+    width: 100%;
+    margin-block: $space-6;
+    aspect-ratio: 16 / 9;
+    background: $color-ink;
+    overflow: hidden;
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+    }
+
+    @include respond-to('md') {
+      border-radius: $radius-sm;
+    }
+  }
+}
+
+// MDX tables — rendered via the mdx-components map, so they appear in both
+// article and member-bio bodies. Top-level (not nested under .article) so the
+// classes apply wherever MDX content is rendered.
+.article__table-wrap {
+  max-width: 100%;
+  overflow-x: auto;
+  margin-block: $space-5;
+}
+
+.article__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: $font-size-sm;
+
+  th {
+    text-align: left;
+    font-weight: $font-weight-semibold;
+    color: $color-header;
+    padding: $space-2 $space-3;
+    border-bottom: 2px solid $color-border;
+    white-space: nowrap;
+  }
+
+  td {
+    padding: $space-2 $space-3;
+    border-bottom: 1px solid $color-border-light;
+    color: $color-paragraphs;
+  }
+
+  tbody tr:nth-child(even) {
+    background: $color-bg-paper;
+  }
+}
+
+// MDX lists — mapped via mdx-components so ul/ol render with the same
+// spacing in every MDX context (article, member bio).
+.article__list {
+  @include text-body-long;
+  max-width: $measure-base;
+  margin-block: $space-4 $space-5;
+  padding-left: $space-5;
+  color: $color-paragraphs;
+
+  li + li {
+    margin-top: $space-2;
+  }
+}
+
+// Prev/next navigation between activities
+.article__nav {
+  display: flex;
+  justify-content: space-between;
+  gap: $space-4;
+  margin-top: $space-7;
+  padding-top: $space-5;
+  border-top: 1px solid $color-border-light;
+
+  @include respond-to('sm') {
+    gap: $space-6;
+  }
+
+  &:empty {
+    display: none;
+  }
+}
+
+.article__nav-link {
+  display: flex;
+  flex-direction: column;
+  gap: $space-1;
+  min-width: 0;
+  color: $color-brand;
+
+  @include interactive {
+    color: $color-brand-dark;
+
+    .article__nav-title {
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-brand;
+    outline-offset: 2px;
+  }
+
+  &--older {
+    align-items: flex-end;
+    text-align: right;
+  }
+}
+
+.article__nav-label {
+  @include text-eyebrow;
+}
+
+.article__nav-title {
+  font-weight: $font-weight-semibold;
+  color: $color-header;
+}

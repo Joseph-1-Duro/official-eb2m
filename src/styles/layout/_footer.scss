@@ -1,0 +1,83 @@
+// Layout — Footer (BEM: footer)
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.footer {
+  background: $color-header;
+  color: $color-surface;
+  padding-block: $space-7;
+
+  &__inner {
+    @include container;
+    display: flex;
+    flex-direction: column;
+    gap: $space-8;
+
+    // @include respond-to('md') {
+    //   flex-direction: row;
+    //   justify-content: space-between;
+    //   align-items: center;
+    // }
+  }
+
+  &__tagline {
+    display: flex;
+    flex-direction: column;
+    gap: $space-3;
+    font-weight: 700;
+  }
+
+  &__text {
+    font-size: $font-size-xl;
+    line-height: $leading-tight;
+    text-wrap: pretty;
+    color: rgba($color-surface, 0.9);
+  }
+
+  &__brand {
+    font-family: var(--font-playfair);
+    font-size: clamp(2.5rem, calc(2.5rem + 0.144 * (100vw - 27.5rem)), 12rem);
+    line-height: 1; // TODO Agent should match this using the appropriate mixin
+    font-weight: 900;
+    color: $color-surface;
+  }
+
+  &__copy {
+    font-size: $font-size-sm;
+    color: rgba($color-surface, 0.7);
+  }
+
+  &__nav {
+    display: flex;
+    flex-direction: column;
+    gap: $space-3;
+    list-style: none;
+
+    @include respond-to('sm') {
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: $space-4;
+    }
+  }
+
+  &__nav-item {
+    display: inline-flex;
+    align-items: center;
+    gap: $space-1;
+  }
+
+  &__arrow {
+    flex-shrink: 0;
+    color: $color-gold-light;
+  }
+
+  &__link {
+    font-size: $font-size-sm;
+    color: rgba($color-surface, 0.8);
+    transition: color $transition-fast;
+
+    @include interactive {
+      color: $color-gold-light;
+    }
+  }
+}

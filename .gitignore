@@ -39,3 +39,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# md (delete later)
+NOTES.md
+TODO.md
+proposal.md

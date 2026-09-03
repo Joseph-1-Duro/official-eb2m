@@ -1,0 +1,121 @@
+// Components — Mission (BEM: mission)
+// Revert: delete this file & remove '@use components/mission' from main.scss, restore Mission.tsx from git: git checkout -- src/app/_section/Mission.tsx
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.mission {
+  background: $color-bg-paper;
+  padding-block: $space-7;
+  overflow: hidden;
+
+  @include respond-to('md') {
+    padding-block: $space-8;
+  }
+
+  &__inner {
+    @include container;
+    display: flex;
+    flex-direction: column;
+    gap: $space-7;
+  }
+
+  &__panels {
+    display: flex;
+    flex-direction: column;
+    gap: $space-7;
+
+    @include respond-to('lg') {
+      display: grid;
+      grid-template-columns: 1fr 1px 1fr;
+      gap: $space-8;
+      align-items: start;
+    }
+  }
+
+  &__panel {
+    display: flex;
+    flex-direction: column;
+    gap: $space-4;
+    text-align: left;
+  }
+
+  &__standalone-wrap {
+    position: relative;
+    isolation: isolate;
+    padding-top: $space-4;
+    margin-bottom: clamp(2rem, 4vw, 2.5rem);
+  }
+
+  &__quote {
+    position: absolute;
+    top: -0.25rem;
+    left: -0.5rem;
+    width: clamp(5rem, 14vw, 9rem);
+    height: clamp(5rem, 14vw, 9rem);
+    color: $color-gold;
+    opacity: 0.10;
+    pointer-events: none;
+    z-index: 0;
+
+    @include respond-to('md') {
+      left: -1rem;
+      top: -0.5rem;
+    }
+  }
+
+  &__standalone {
+    position: relative;
+    z-index: 1;
+    font-family: var(--font-playfair);
+    // smaller than h2 — uses h3 token but keeps Playfair for standalone prominence
+    // mixin text-heading(3) would switch to Jakarta, so use size token directly
+    font-size: $font-size-h3;
+    line-height: $leading-snug;
+    font-weight: $font-weight-bold;
+    letter-spacing: $tracking-tight;
+    text-wrap: balance;
+    color: $color-header;
+    text-align: left;
+  }
+
+  &__copy {
+    display: flex;
+    gap: $space-3;
+    align-items: flex-start;
+    justify-content: flex-start;
+    text-align: left;
+  }
+
+  &__arrow {
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    color: $color-gold;
+    margin-top: 0.2em;
+  }
+
+  &__text {
+    flex: 1;
+    max-width: $measure-base;
+    font-size: $font-size-base;
+    line-height: $leading-relaxed;
+    color: $color-muted;
+    text-wrap: pretty;
+    text-align: left;
+
+    @include respond-to('md') {
+      font-size: $font-size-lg;
+    }
+  }
+
+  &__divider {
+    display: none;
+
+    @include respond-to('lg') {
+      display: block;
+      width: 1px;
+      align-self: stretch;
+      background: $color-border-light;
+    }
+  }
+}

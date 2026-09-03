@@ -1,0 +1,59 @@
+// Components — Map UI (BEM: map-ui) — contact page location map
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.map-ui {
+  background: $color-bg-paper;
+  border-block: 1px solid $color-border-light;
+
+  &__bar {
+    padding-block: $space-5;
+  }
+
+  &__bar-inner {
+    @include container;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: $space-3;
+  }
+
+  &__address {
+    @include text-body;
+    font-weight: $font-weight-medium;
+    color: $color-header;
+  }
+
+  &__directions {
+    display: inline-flex;
+    align-items: center;
+    gap: $space-1;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-semibold;
+    color: $color-brand;
+    white-space: nowrap;
+    transition: color $transition-fast;
+
+    @include interactive {
+      color: $color-brand-dark;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $color-brand;
+      outline-offset: 2px;
+    }
+  }
+
+  &__frame {
+    width: 100%;
+    height: clamp(18rem, 40vw, 30rem);
+
+    iframe {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+  }
+}

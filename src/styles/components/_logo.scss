@@ -1,0 +1,46 @@
+// Components — Logo (BEM: logo)
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-2;
+  font-family: var(--font-playfair);
+  font-size: $font-size-lg;
+  font-weight: 700;
+  color: $color-header;
+  line-height: 1;
+  transition: opacity $transition-fast;
+
+  @include interactive {
+    opacity: 0.85;
+  }
+
+  &__mark {
+    @include flex-center;
+    width: 2rem;
+    height: 2rem;
+    background: $color-brand;
+    color: $color-surface;
+    border-radius: $radius-sm;
+    font-size: $font-size-sm;
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+
+    &--primary {
+      color: $color-header;
+    }
+
+    &--accent {
+      color: $color-gold;
+      font-size: $font-size-xs;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+  }
+}

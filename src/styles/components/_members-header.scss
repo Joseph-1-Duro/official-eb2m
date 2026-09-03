@@ -1,0 +1,47 @@
+// Components — Members Header (BEM: members-header)
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.members-header {
+  background: $color-header-deep;
+  color: $color-surface;
+  text-align: center;
+  padding-block: clamp(5rem, 12vw + 1rem, 11rem);
+  padding-inline: $container-padding;
+  overflow: hidden;
+
+  @include respond-to('md') {
+    padding-block: clamp(6rem, 10vw + 2rem, 12rem);
+  }
+
+  &__inner {
+    @include container;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__title {
+    max-width: 18ch;
+    font-family: var(--font-playfair);
+    font-size: $font-size-h1;
+    line-height: $leading-tight;
+    font-weight: $font-weight-regular;
+    letter-spacing: $tracking-tight;
+    text-wrap: balance;
+    color: $color-surface;
+
+    @include respond-to('md') {
+      max-width: 22ch;
+    }
+  }
+
+  &__line {
+    display: block;
+  }
+
+  &__accent {
+    display: block;
+    color: $color-gold-light;
+    margin-top: $space-2;
+  }
+}

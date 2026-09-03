@@ -1,0 +1,35 @@
+// Components — Button (BEM: block__element--modifier)
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: $space-2 $space-4;
+  border-radius: $radius-sm;
+  border: 1px solid transparent;
+  font-size: $font-size-base;
+  transition: background $transition-fast, color $transition-fast, border-color $transition-fast;
+
+  @include interactive {
+    // hover + focus-visible state
+  }
+
+  &--primary {
+    background: $color-brand;
+    color: $color-surface;
+  }
+
+  &--ghost {
+    background: transparent;
+    border-color: $color-border;
+    color: $color-ink;
+  }
+}
+
+// JS hook — never in static markup, toggled via JS
+.is-loading {
+  pointer-events: none;
+  opacity: 0.7;
+}

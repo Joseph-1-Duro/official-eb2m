@@ -1,0 +1,69 @@
+// Components — Gallery (BEM: gallery)
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $space-3;
+
+  @include respond-to('md') {
+    grid-template-columns: repeat(3, 1fr);
+    gap: $space-4;
+  }
+
+  &__item {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    border-radius: $radius-sm;
+    background: $color-border-light;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+
+    @include interactive {
+      .gallery__image {
+        transform: scale(1.03);
+      }
+    }
+
+    &:focus-visible {
+      outline: 2px solid $color-brand;
+      outline-offset: 2px;
+    }
+
+    &--video {
+      .gallery__image {
+        opacity: 0.9;
+      }
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform $transition-base;
+  }
+
+  &__play {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    font-size: 2rem;
+    color: $color-surface;
+    background: rgba($color-ink, 0.35);
+  }
+
+  &__video-fallback {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 100%;
+    font-size: $font-size-sm;
+    color: $color-muted;
+    background: $color-surface;
+  }
+}

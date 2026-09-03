@@ -1,0 +1,101 @@
+// Components — Activities (BEM: activities)
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.activities {
+  background: $color-bg-paper;
+  padding-block: $space-7;
+
+  @include respond-to('md') {
+    padding-block: $space-8;
+  }
+
+  &__inner {
+    @include container;
+  }
+
+  &__header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: $space-4;
+    margin-bottom: $space-6;
+  }
+
+  &__title {
+    @include text-heading(2);
+    color: $color-header;
+  }
+
+  &__cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: $space-1;
+    padding: $space-3 $space-5;
+    background: $color-brand;
+    color: $color-surface;
+    border-radius: $radius-sm;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-semibold;
+    line-height: 1;
+    white-space: nowrap;
+    transition: background $transition-fast, transform $transition-fast;
+
+    @include interactive {
+      background: $color-brand-dark;
+      transform: translateY(-1px);
+    }
+
+    &:focus-visible {
+      outline: 2px solid $color-brand;
+      outline-offset: 2px;
+    }
+  }
+
+  &__cta-icon {
+    flex-shrink: 0;
+  }
+
+  &__grid {
+    display: grid;
+    gap: $space-5;
+
+    @include respond-to('lg') {
+      grid-template-columns: repeat(2, 1fr);
+      gap: $space-5;
+    }
+  }
+
+  &__item {
+    // first item spans entire grid on large
+    @include respond-to('lg') {
+      &:first-child {
+        grid-column: 1 / -1;
+      }
+    }
+  }
+
+  // make first card horizontal on large to emphasize span
+  &__item:first-child .activity-card {
+    @include respond-to('lg') {
+      flex-direction: row;
+
+      .activity-card__media {
+        flex: 0 0 52%;
+        display: block;
+        aspect-ratio: 16 / 10;
+      }
+
+      .activity-card__body {
+        flex: 1;
+        justify-content: center;
+        padding: $space-6;
+      }
+
+      .activity-card__title {
+        font-size: $font-size-xl;
+      }
+    }
+  }
+}

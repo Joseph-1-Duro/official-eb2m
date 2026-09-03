@@ -1,0 +1,11 @@
+@use '../abstracts/variables' as *;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: $color-bg-paper;
+  color: $color-paragraphs;
+  padding-top: $header-height;
+}

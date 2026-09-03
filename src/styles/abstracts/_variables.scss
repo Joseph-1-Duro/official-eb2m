@@ -1,0 +1,105 @@
+// =============================================================================
+// Abstracts — Variables (Tier 1)
+// All design tokens: colors, spacing, radii, breakpoints, typography
+// Components must reference these, never hardcode hex/px
+// =============================================================================
+
+// ----- Colors -----
+$color-ink: #17212b;
+$color-muted: #5f6b76;
+$color-paper: #f8f6f1;
+$color-bg-paper: #fdfbf7;
+$color-surface: #ffffff;
+
+$color-brand: #0f5b4d;
+$color-brand-dark: #0a3f35;
+$color-brand-light: #14a085;
+
+$color-header: #1b2a47;
+$color-header-deep: #0f1a33;
+$color-paragraphs: #2d3142;
+$color-gold: #b89047;
+$color-gold-light: #d4a85c;
+
+$color-border: #d9dedb;
+$color-border-light: #e8ecea;
+
+// ----- Spacing -----
+$space-1: 0.5rem;   // 8px
+$space-2: 0.75rem;  // 12px
+$space-3: 1rem;     // 16px
+$space-4: 1.5rem;   // 24px
+$space-5: 2rem;     // 32px
+$space-6: 3rem;     // 48px
+$space-7: 4rem;     // 64px
+$space-8: 6rem;     // 96px
+
+// ----- Radii -----
+$radius-sm: 0.25rem;
+$radius-md: 0.5rem;
+$radius-lg: 0.75rem;
+$radius-xl: 1rem;
+$radius-full: 9999px;
+
+// ----- Layout -----
+$container-width: 80rem; // 1280px
+$container-padding: $space-4;
+$header-height: 5rem;
+
+// ----- Breakpoints (mobile-first, min-width) -----
+$breakpoints: (
+  'sm': 36em,  // 576px
+  'md': 48em,  // 768px
+  'lg': 64em,  // 1024px
+  'xl': 80em,  // 1280px
+);
+
+// ----- Typography -----
+$font-size-xs: 0.75rem;
+$font-size-sm: 0.875rem;
+$font-size-base: 1rem;
+$font-size-lg: 1.125rem;
+$font-size-xl: 1.25rem;
+$font-size-2xl: 1.5rem;
+$font-size-3xl: 2rem;
+$font-size-4xl: 2.5rem;
+$font-size-5xl: 3rem;
+
+// Fluid display — hero + long-form headings
+$font-size-h1: clamp(2.5rem, 1.83rem + 2.67vw, 4.5rem);
+$font-size-h2: clamp(2rem, 1.5rem + 2vw, 3.25rem);
+$font-size-h3: clamp(1.5rem, 1.25rem + 1vw, 2rem);
+$font-size-h4: clamp(1.25rem, 1.1rem + 0.6vw, 1.5rem);
+
+// Weights
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+$font-weight-extrabold: 800;
+
+// Tracking
+$tracking-tight: -0.02em;
+$tracking-normal: 0;
+$tracking-wide: 0.06em;
+$tracking-widest: 0.12em;
+
+// Leading
+$leading-tight: 1.05;
+$leading-snug: 1.15;
+$leading-normal: 1.6;
+$leading-relaxed: 1.75;
+
+// Measure — 55ch narrow (hero), 65ch base (blog/bio)
+$measure-narrow: 55ch;
+$measure-base: 65ch;
+
+// ----- Transitions -----
+$transition-fast: 150ms ease;
+$transition-base: 250ms ease;
+$transition-slow: 400ms ease;
+
+// ----- Z-index -----
+$z-header: 100;
+$z-overlay: 200;
+$z-modal: 300;
