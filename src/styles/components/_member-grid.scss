@@ -24,7 +24,7 @@
 
   &__card {
     display: block;
-    background: $color-surface;
+    background: $color-paper;
     overflow: hidden;
     border: 1px solid $color-border-light;
     border-radius: $radius-sm;
@@ -58,8 +58,12 @@
 
   &__name {
     font-family: var(--font-playfair);
+    font-size: $font-size-xl;
+    line-height: $leading-snug;
     font-weight: $font-weight-bold;
     color: $color-header;
+    letter-spacing: $tracking-tight;
+    margin-block-end: $space-1;
   }
 
   &__role {

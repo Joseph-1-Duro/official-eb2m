@@ -5,6 +5,7 @@
 .contact-form {
   background: $color-bg-paper;
   padding-block: $space-7;
+  accent-color: $color-gold;
 
   @include respond-to('md') {
     padding-block: $space-8;
@@ -59,10 +60,23 @@
     font-size: $font-size-base;
     color: $color-ink;
     background: $color-surface;
+    accent-color: $color-gold;
     transition: border-color $transition-fast, box-shadow $transition-fast;
 
     @include interactive {
       border-color: $color-brand;
+    }
+
+    &:focus {
+      outline: 2px solid $color-gold;
+      outline-offset: 2px;
+      border-color: $color-gold;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $color-gold;
+      outline-offset: 2px;
+      border-color: $color-gold;
     }
   }
 

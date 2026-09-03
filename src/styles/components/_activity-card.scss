@@ -12,8 +12,6 @@
   overflow: hidden;
   text-decoration: none;
   transition: border-color $transition-fast, transform $transition-fast;
-  container-type: inline-size;
-  container-name: card;
 
   @include interactive {
     border-color: $color-border;
@@ -26,18 +24,10 @@
   }
 
   &__media {
-    display: none;
+    display: block;
     aspect-ratio: 16 / 10;
     overflow: hidden;
     background: $color-border-light;
-  }
-
-  // Show OG-image only when card width passes threshold (≈ 24rem / 384px)
-  // 1-col mobile hides image (saves paint), 2-col md+ shows it
-  @container card (min-width: 24rem) {
-    .activity-card__media {
-      display: block;
-    }
   }
 
   &__image {
@@ -63,11 +53,12 @@
 
   &__title {
     font-family: var(--font-playfair);
-    font-size: $font-size-lg;
+    font-size: $font-size-xl;
     line-height: $leading-snug;
     font-weight: $font-weight-bold;
     color: $color-header;
     letter-spacing: $tracking-tight;
+    margin-block-end: $space-1;
   }
 
   &__excerpt {

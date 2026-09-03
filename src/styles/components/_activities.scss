@@ -27,34 +27,41 @@
     color: $color-header;
   }
 
-  &__cta {
+  &__link {
     display: inline-flex;
     align-items: center;
-    justify-content: center;
     gap: $space-1;
-    padding: $space-3 $space-5;
-    background: $color-brand;
-    color: $color-surface;
-    border-radius: $radius-sm;
+    color: $color-brand;
     font-size: $font-size-sm;
     font-weight: $font-weight-semibold;
     line-height: 1;
     white-space: nowrap;
-    transition: background $transition-fast, transform $transition-fast;
+    text-decoration: none;
+    transition: color $transition-fast, gap $transition-fast;
 
-    @include interactive {
-      background: $color-brand-dark;
-      transform: translateY(-1px);
+    @include hover {
+      color: $color-brand-dark;
+      gap: $space-2;
     }
 
     &:focus-visible {
       outline: 2px solid $color-brand;
       outline-offset: 2px;
+      border-radius: $radius-sm;
     }
   }
 
-  &__cta-icon {
+  &__link-icon {
     flex-shrink: 0;
+    transition: transform $transition-fast;
+
+    .activities__link:hover & {
+      transform: translateX(2px);
+    }
+
+    .activities__link:focus-visible & {
+      transform: translateX(2px);
+    }
   }
 
   &__grid {
@@ -94,7 +101,7 @@
       }
 
       .activity-card__title {
-        font-size: $font-size-xl;
+        font-size: $font-size-2xl;
       }
     }
   }

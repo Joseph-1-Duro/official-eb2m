@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { getRecentActivities } from "@/lib/articles";
 import ActivityCard from "@/ui/components/ActivityCard";
 
@@ -13,9 +13,9 @@ export default function Activities() {
       <div className="activities__inner">
         <div className="activities__header">
           <h2 className="activities__title">Recent Activities</h2>
-          <Link href="/activities" className="activities__cta">
+          <Link href="/activities" className="activities__link">
             View all
-            <ArrowUpRight size={16} aria-hidden="true" className="activities__cta-icon" />
+            <ArrowRight size={16} aria-hidden="true" className="activities__link-icon" />
           </Link>
         </div>
 
