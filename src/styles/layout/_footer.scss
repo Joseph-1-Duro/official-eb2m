@@ -35,9 +35,9 @@
   }
 
   &__brand {
-    font-family: var(--font-playfair);
+    font-family: var(--font-zilla);
     font-size: clamp(2.5rem, calc(2.5rem + 0.144 * (100vw - 27.5rem)), 12rem);
-    line-height: 1; // TODO Agent should match this using the appropriate mixin
+    line-height: 1.2;
     font-weight: 900;
     color: $color-surface;
   }

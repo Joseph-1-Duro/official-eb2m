@@ -6,7 +6,7 @@
   display: inline-flex;
   align-items: center;
   gap: $space-2;
-  font-family: var(--font-playfair);
+  font-family: var(--font-zilla);
   font-size: $font-size-lg;
   font-weight: 700;
   color: $color-header;
@@ -34,13 +34,6 @@
 
     &--primary {
       color: $color-header;
-    }
-
-    &--accent {
-      color: $color-gold;
-      font-size: $font-size-xs;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
     }
   }
 }

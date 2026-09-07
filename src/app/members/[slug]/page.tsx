@@ -41,7 +41,7 @@ export default async function MemberPage({ params }: { params: Promise<{ slug: s
   return (
     <div className="member-bio">
       <div className="member-bio__inner">
-        <Link href="/members" className="member-bio__breadcrumb">
+        <Link href="/members#members" className="member-bio__breadcrumb">
           <ArrowLeft size={16} aria-hidden="true" />
           Back to Members
         </Link>

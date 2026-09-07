@@ -22,7 +22,7 @@
 
   &__title {
     max-width: 18ch;
-    font-family: var(--font-playfair);
+    font-family: var(--font-zilla);
     font-size: $font-size-h1;
     line-height: $leading-tight;
     font-weight: $font-weight-regular;
@@ -43,5 +43,15 @@
     display: block;
     color: $color-gold-light;
     margin-top: $space-2;
+  }
+}
+
+// Pre-animation state — hidden from first paint via the CSS-only
+// `gsap-guard` mixin (see abstracts/_mixins); GSAP reveals via autoAlpha.
+@include gsap-guard {
+  .members-header__line,
+  .members-header__accent {
+    opacity: 0;
+    visibility: hidden;
   }
 }

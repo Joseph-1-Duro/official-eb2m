@@ -66,8 +66,8 @@
   &__standalone {
     position: relative;
     z-index: 1;
-    font-family: var(--font-playfair);
-    // smaller than h2 — uses h3 token but keeps Playfair for standalone prominence
+    font-family: var(--font-zilla);
+    // smaller than h2 — uses h3 token but keeps Zilla Slab for standalone prominence
     // mixin text-heading(3) would switch to Jakarta, so use size token directly
     font-size: $font-size-h3;
     line-height: $leading-snug;

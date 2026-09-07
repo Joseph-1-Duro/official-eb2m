@@ -3,18 +3,20 @@
 import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { Quote } from "lucide-react";
 
 export default function Header() {
   const containerRef = useRef<HTMLElement>(null);
 
   useGSAP(
     () => {
-      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-
       const lines = gsap.utils.toArray<HTMLElement>(".members-header__line, .members-header__accent", containerRef.current);
 
       if (!lines.length) return;
+
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        gsap.set(lines, { autoAlpha: 1, y: 0 });
+        return;
+      }
 
       gsap.set(lines, { autoAlpha: 0, y: 32 });
 
@@ -34,7 +36,6 @@ export default function Header() {
     <section ref={containerRef} className="members-header">
       <div className="members-header__inner">
         <h1 className="members-header__title">
-          <Quote />
           <span className="members-header__line">Turning shared history</span>
           <span className="members-header__line">into scholarships, mentorship,</span>
           <span className="members-header__line">and opportunity</span>

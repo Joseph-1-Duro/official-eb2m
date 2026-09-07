@@ -1,6 +1,6 @@
 import { MDXRemote } from "next-mdx-remote/rsc";
 import remarkGfm from "remark-gfm";
-import { useMDXComponents } from "@/../mdx-components";
+import { useMDXComponents } from "@/mdx-components";
 
 type MdxContentProps = {
   source: string;

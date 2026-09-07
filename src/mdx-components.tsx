@@ -1,6 +1,7 @@
 import type { MDXComponents } from "mdx/types";
 import Image from "next/image";
 import Link from "next/link";
+import YouTubeEmbed from "@/ui/components/YouTubeEmbed";
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
@@ -24,6 +25,9 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         <iframe {...props} />
       </div>
     ),
+    // Raw `<iframe>` HTML in MDX bodies bypasses the `iframe` mapping above,
+    // so posts embed videos via `<YouTube id="..." title="..." />` instead.
+    YouTube: (props) => <YouTubeEmbed {...props} />,
     a: ({ href, children, ...props }) => {
       const isExternal = href?.startsWith("http");
       if (isExternal) {

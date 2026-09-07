@@ -4,7 +4,7 @@
 
 .member-grid {
   background: $color-surface;
-  padding-block: $space-7;
+  padding-block: $space-8;
 
   &__inner {
     @include container;
@@ -29,11 +29,11 @@
     border: 1px solid $color-border-light;
     border-radius: $radius-sm;
     box-shadow: 0 4px 14px rgba($color-ink, 0.08);
-    transition: border-color $transition-fast, transform $transition-fast, box-shadow $transition-fast;
+    transition: transform $transition-fast, box-shadow $transition-fast;
 
     @include interactive {
-      border-color: $color-brand;
-      transform: translateY(-2px);
+      transform: translateY(-3px);
+      box-shadow: 0 15px 35px rgba(191, 149, 63, 0.25);
     }
 
     &:focus-visible {
@@ -57,7 +57,7 @@
   }
 
   &__name {
-    font-family: var(--font-playfair);
+    font-family: var(--font-zilla);
     font-size: $font-size-xl;
     line-height: $leading-snug;
     font-weight: $font-weight-bold;
@@ -81,5 +81,14 @@
     font-weight: $font-weight-semibold;
     letter-spacing: $tracking-wide;
     color: $color-muted;
+  }
+}
+
+// Pre-animation state — hidden from first paint via the CSS-only
+// `gsap-guard` mixin (see abstracts/_mixins); GSAP reveals via autoAlpha.
+@include gsap-guard {
+  .member-grid__card {
+    opacity: 0;
+    visibility: hidden;
   }
 }

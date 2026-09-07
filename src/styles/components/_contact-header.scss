@@ -79,3 +79,13 @@
     }
   }
 }
+
+// Pre-animation state — hidden from first paint via the CSS-only
+// `gsap-guard` mixin (see abstracts/_mixins); GSAP reveals via autoAlpha.
+@include gsap-guard {
+  .contact-header__intro,
+  .contact-header__item {
+    opacity: 0;
+    visibility: hidden;
+  }
+}

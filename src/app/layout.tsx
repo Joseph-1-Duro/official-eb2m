@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import '@/styles/main.scss'
 import Header from "@/ui/layout/Header";
 import Footer from "@/ui/layout/Footer";
-import { jakartaFont, playFont } from "@/ui/fonts";
+import { jakartaFont, zillaFont } from "@/ui/fonts";
 import ScrollToTop from "@/ui/components/ScrollToTop";
 
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://ekoboy2men.org";
@@ -39,7 +39,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       data-scroll-behavior="smooth"
       lang="en"
-      className={`${playFont.variable} ${jakartaFont.variable}`}
+      className={`${zillaFont.variable} ${jakartaFont.variable}`}
     >
       <body>
         <Header />
@@ -47,7 +47,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <main>
           {children}
         </main>
-
         <Footer />
       </body>
     </html>

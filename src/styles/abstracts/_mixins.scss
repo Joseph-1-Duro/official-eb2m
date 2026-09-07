@@ -81,7 +81,7 @@
 }
 
 @mixin text-heading($level: 1) {
-  font-family: var(--font-playfair);
+  font-family: var(--font-zilla);
   letter-spacing: $tracking-tight;
   text-wrap: balance;
   @if $level == 1 {
@@ -125,6 +125,17 @@
   }
 
   &:focus-visible {
+    @content;
+  }
+}
+
+// ----- Motion -----
+// Pre-animation guard for GSAP reveals — hides targets from first paint
+// only when scripting is enabled and the user accepts motion, so no-JS
+// and reduced-motion users always see content immediately.
+// GSAP components reveal the same targets via autoAlpha on hydration.
+@mixin gsap-guard {
+  @media (scripting: enabled) and (prefers-reduced-motion: no-preference) {
     @content;
   }
 }

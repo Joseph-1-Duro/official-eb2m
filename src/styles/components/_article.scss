@@ -105,6 +105,18 @@
 
   // Spans the full article container width (the body no longer constrains
   // it), matching the `container` mixin used across the site.
+  // Bare iframes in MDX bodies (e.g. YouTube embeds written as raw HTML,
+  // which bypass the mdx-components `iframe` map and render without the
+  // wrapper): same full-container treatment, no browser-default 300x150 box.
+  &__body iframe {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    border: 0;
+    margin-block: $space-6;
+    background: $color-ink;
+  }
   &__video {
     width: 100%;
     margin-block: $space-6;

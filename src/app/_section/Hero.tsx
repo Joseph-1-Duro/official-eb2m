@@ -12,11 +12,15 @@ export default function Hero() {
 
   useGSAP(
     () => {
-      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-
       const q = gsap.utils.selector(containerRef);
       const textTargets = q("h1, .motto, .hero__text p, .hero__cta");
       const media = q(".hero__media");
+
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        gsap.set(textTargets, { autoAlpha: 1, y: 0 });
+        gsap.set(media, { autoAlpha: 1, clipPath: "inset(0 0 0% 0)" });
+        return;
+      }
 
       gsap.set(textTargets, { autoAlpha: 0, y: 24 });
       gsap.set(media, { autoAlpha: 0, clipPath: "inset(0 0 100% 0)" });

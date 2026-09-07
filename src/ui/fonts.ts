@@ -1,8 +1,9 @@
-import { Playfair_Display, Plus_Jakarta_Sans } from "next/font/google"
+import { Plus_Jakarta_Sans, Zilla_Slab } from "next/font/google"
 
-export const playFont = Playfair_Display({
-  variable: "--font-playfair",
+export const zillaFont = Zilla_Slab({
+  variable: "--font-zilla",
   subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
   display: 'swap'
 })
 

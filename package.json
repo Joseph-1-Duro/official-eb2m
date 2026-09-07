@@ -34,5 +34,5 @@
     "sass": "^1.103.1",
     "typescript": "^7"
   },
-  "packageManager": "pnpm@11.12.0"
+  "packageManager": "pnpm@12.3.4"
 }
