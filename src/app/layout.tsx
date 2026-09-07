@@ -4,11 +4,10 @@ import Header from "@/ui/layout/Header";
 import Footer from "@/ui/layout/Footer";
 import { jakartaFont, zillaFont } from "@/ui/fonts";
 import ScrollToTop from "@/ui/components/ScrollToTop";
-
-const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://ekoboy2men.org";
+import { SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(baseUrl),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "Eko Boys To Men Association",
     template: "%s — Eko Boys To Men",
@@ -20,7 +19,7 @@ export const metadata: Metadata = {
     siteName: "Eko Boys To Men Association",
     type: "website",
     locale: "en_US",
-    url: baseUrl,
+    url: SITE_URL,
   },
   twitter: {
     card: "summary_large_image",

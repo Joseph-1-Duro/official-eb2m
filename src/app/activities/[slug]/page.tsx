@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 import { getAllActivities, getActivityBySlug, getAdjacentActivities } from "@/lib/articles";
 import { formatDate } from "@/lib/format";
+import { SITE_URL } from "@/lib/site";
 import MdxContent from "@/ui/components/MdxContent";
 import Gallery from "@/ui/components/Gallery";
 import ActivityPagination from "@/ui/components/ActivityPagination";
@@ -18,14 +19,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const activity = getActivityBySlug(slug);
   if (!activity) return {};
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://ekoboy2men.org";
   return {
     title: activity.title,
     description: activity.description,
     openGraph: {
       title: activity.title,
       description: activity.description,
-      url: `${baseUrl}/activities/${slug}`,
+      url: `${SITE_URL}/activities/${slug}`,
       type: "article",
       images: activity.cover ? [{ url: activity.cover }] : undefined,
     },

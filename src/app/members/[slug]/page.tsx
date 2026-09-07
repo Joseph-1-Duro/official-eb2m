@@ -4,6 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 import { getAllMembers, getMemberBySlug } from "@/lib/articles";
+import { SITE_URL } from "@/lib/site";
 import MdxContent from "@/ui/components/MdxContent";
 
 export const runtime = "nodejs";
@@ -16,14 +17,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const member = getMemberBySlug(slug);
   if (!member) return {};
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://ekoboy2men.org";
   return {
     title: member.name,
     description: member.excerpt ?? member.role,
     openGraph: {
       title: member.name,
       description: member.excerpt ?? member.role,
-      url: `${baseUrl}/members/${slug}`,
+      url: `${SITE_URL}/members/${slug}`,
       type: "profile",
       images: member.avatar ? [{ url: member.avatar }] : undefined,
     },

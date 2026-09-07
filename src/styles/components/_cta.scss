@@ -1,0 +1,135 @@
+// Components — CTA (BEM: cta)
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.cta {
+  background: $color-bg-paper;
+  padding-block: $space-7;
+
+  @include respond-to('md') {
+    padding-block: $space-8;
+  }
+
+  &__inner {
+    @include container;
+  }
+
+  &__header {
+    margin-bottom: $space-6;
+  }
+
+  &__title {
+    @include text-heading(2);
+    color: $color-header;
+  }
+
+  &__subtitle {
+    margin-top: $space-2;
+    max-width: $measure-base;
+    color: $color-muted;
+    font-size: $font-size-base;
+    line-height: $leading-relaxed;
+    text-wrap: pretty;
+
+    @include respond-to('md') {
+      font-size: $font-size-lg;
+    }
+  }
+
+  &__grid {
+    display: grid;
+    gap: $space-4; // 1.5rem
+
+    @include respond-to('md') {
+      grid-template-columns: 1fr 1fr;
+      align-items: stretch;
+    }
+  }
+
+  // banner always spans the full grid row
+  &__banner {
+    grid-column: 1 / -1;
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 16 / 9;
+  }
+
+  &__banner-image {
+    object-fit: cover;
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: $space-5; // 2rem — header to body
+    padding: $space-6;
+    border-radius: $radius-sm;
+    color: $color-surface;
+    text-decoration: none;
+
+    &--facebook {
+      background: $gradient-facebook;
+    }
+
+    &--instagram {
+      background: $gradient-instagram;
+    }
+
+    @include interactive {
+      outline: 2px solid $color-surface;
+      outline-offset: -$radius-sm;
+    }
+  }
+
+  &__card-header {
+    display: flex;
+    align-items: center;
+    gap: $space-2;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-semibold;
+    letter-spacing: $tracking-wide;
+    text-transform: uppercase;
+    opacity: 0.9;
+  }
+
+  &__card-icon {
+    flex-shrink: 0;
+  }
+
+  &__card-body {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: $space-4;
+  }
+
+  &__card-title {
+    font-family: var(--font-zilla);
+    font-size: $font-size-2xl;
+    font-weight: $font-weight-bold;
+    line-height: $leading-snug;
+    letter-spacing: $tracking-tight;
+  }
+
+  &__card-arrow {
+    flex-shrink: 0;
+    // slightly visible until the card is hovered/focused
+    opacity: 0.5;
+    transition: opacity $transition-fast, transform $transition-fast;
+
+    .cta__card:is(:hover, :focus-visible) & {
+      opacity: 1;
+      transform: translateX(2px);
+    }
+  }
+}
+
+// Pre-animation state — hidden from first paint via the CSS-only
+// `gsap-guard` mixin (see abstracts/_mixins); GSAP reveals via autoAlpha.
+@include gsap-guard {
+  .cta__card {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
