@@ -209,6 +209,7 @@
   gap: $space-1;
   min-width: 0;
   color: $color-brand;
+  font-size: $font-size-sm;
 
   @include interactive {
     color: $color-brand-dark;
