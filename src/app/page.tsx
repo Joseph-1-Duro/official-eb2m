@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Marquee from "@/ui/components/Marquee";
 import Hero from "./_section/Hero";
 import Mission from "./_section/Mission";
+import HighlightSection from "./_section/HighlightSection";
 import Activities from "./_section/Activities";
 import CTA from "./_section/CTA";
 
@@ -23,6 +24,7 @@ export default function Home() {
   return (
     <>
       <Hero />
+      <HighlightSection />
       <Mission />
       <Marquee />
       <Activities />

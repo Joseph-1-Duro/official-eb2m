@@ -1,0 +1,192 @@
+// Components — Highlights (BEM: highlights)
+// Vision & Mission text cards + achievements bento grid
+// Revert: delete this file & remove '@use components/highlights' from main.scss, restore HighlightSection.tsx from git: git checkout -- src/app/_section/HighlightSection.tsx
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+// Gold shimmer sweep across the vision / mission text cards
+// (sweep for 55% of the cycle, then rests before repeating)
+@keyframes highlights-shimmer {
+  0% {
+    transform: translateX(-110%);
+  }
+
+  55% {
+    transform: translateX(110%);
+  }
+
+  100% {
+    transform: translateX(110%);
+  }
+}
+
+.highlights {
+  background: $color-bg-paper;
+  padding-block: $space-7;
+  overflow: hidden;
+
+  @include respond-to('md') {
+    padding-block: $space-8;
+  }
+
+  &__inner {
+    @include container;
+    display: flex;
+    flex-direction: column;
+    gap: $space-6;
+  }
+
+  &__intro {
+    display: flex;
+    flex-direction: column;
+    gap: $space-2;
+  }
+
+  &__eyebrow {
+    @include text-eyebrow;
+  }
+
+  &__title {
+    @include text-heading(2);
+    color: $color-header;
+  }
+
+  // ----- Bento grid: 2 columns on mobile, 4 from md up -----
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: $space-3;
+
+    @include respond-to('md') {
+      grid-template-columns: repeat(4, 1fr);
+      gap: $space-4;
+    }
+  }
+
+  // ----- Text cards (vision / mission) -----
+  &__card {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    grid-column: span 2;
+    display: flex;
+    flex-direction: column;
+    gap: $space-3;
+    padding: $space-5;
+    background: $color-surface;
+    border: 1px solid $color-border-light;
+    border-radius: $radius-lg;
+    transition: border-color $transition-base;
+
+    @include respond-to('md') {
+      padding: $space-6;
+    }
+
+    @include interactive {
+      border-color: $color-gold-light;
+    }
+
+    // Gold shimmer overlay
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      background: linear-gradient(
+        115deg,
+        transparent 32%,
+        rgba($color-gold-light, 0.15) 45%,
+        rgba($color-gold, 0.35) 50%,
+        rgba($color-gold-light, 0.15) 55%,
+        transparent 68%
+      );
+      transform: translateX(-110%);
+
+      @media (prefers-reduced-motion: no-preference) {
+        animation: highlights-shimmer 5s ease-in-out infinite;
+      }
+    }
+  }
+
+  // Desync the two cards so their sweeps don't run in lockstep
+  &__card--vision::after {
+    animation-delay: 0.5s;
+  }
+
+  &__card--mission::after {
+    animation-delay: 3s;
+  }
+
+  &__card-title {
+    position: relative;
+    z-index: 2;
+    font-family: var(--font-zilla);
+    font-size: $font-size-h3;
+    line-height: $leading-snug;
+    font-weight: $font-weight-bold;
+    letter-spacing: $tracking-tight;
+    color: $color-header;
+    padding-bottom: $space-2;
+    margin-block-end: $space-1;
+
+    // Gold underline accent
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 3rem;
+      height: 2px;
+      border-radius: $radius-full;
+      background: linear-gradient(90deg, $color-gold, $color-gold-light);
+    }
+  }
+
+  &__card-text {
+    position: relative;
+    z-index: 2;
+    @include text-body;
+    color: $color-muted;
+  }
+
+  // ----- Image tiles -----
+  &__media {
+    position: relative;
+    overflow: hidden;
+    grid-column: span 1;
+    aspect-ratio: 4 / 5;
+    border: 1px solid $color-border-light;
+    border-radius: $radius-lg;
+    background: $color-border-light;
+  }
+
+  &__media--wide {
+    grid-column: span 2;
+    aspect-ratio: 16 / 9;
+
+    @include respond-to('md') {
+      grid-column: span 4;
+      aspect-ratio: 21 / 9;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform $transition-slow;
+
+    @include hover {
+      transform: scale(1.04);
+    }
+  }
+
+  // GSAP pre-hide — content stays visible for no-JS & reduced-motion users
+  @include gsap-guard {
+    [data-reveal] {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+  }
+}
