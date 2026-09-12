@@ -19,6 +19,7 @@ type NavbarProps = {
 
 export default function Navbar({ open, setOpen }: NavbarProps) {
   const containerRef = useRef<HTMLDivElement>(null);
+  const navRef = useRef<HTMLElement>(null);
 
   // close navbar on window resize
   useEffect(() => {
@@ -56,18 +57,54 @@ export default function Navbar({ open, setOpen }: NavbarProps) {
     }
   }, [open]);
 
-  // gsap animation to hero section
+  // slide the mobile menu down/up — GSAP drives height so the close animates too
   useGSAP(
     () => {
-      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-      if (!open) return;
+      const nav = navRef.current;
+      if (!nav) return;
 
-      const items = gsap.utils.toArray<HTMLElement>(".navbar__item", containerRef.current);
-      gsap.fromTo(
-        items,
-        { autoAlpha: 0, y: 8 },
-        { autoAlpha: 1, y: 0, duration: 0.35, stagger: 0.08, ease: "power2.out", overwrite: true },
-      );
+      const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const isMobile = !window.matchMedia("(min-width: 48em)").matches;
+
+      // desktop nav never collapses — clear any inline mobile styles
+      if (!isMobile) {
+        gsap.set(nav, { clearProps: "all" });
+        return;
+      }
+
+      if (open) {
+        gsap.set(nav, { display: "flex" });
+        if (reduced) {
+          gsap.set(nav, { height: "auto", autoAlpha: 1 });
+          return;
+        }
+        gsap.fromTo(
+          nav,
+          { height: 0, autoAlpha: 0 },
+          { height: "auto", autoAlpha: 1, duration: 0.3, ease: "power2.out", overwrite: true },
+        );
+        const items = gsap.utils.toArray<HTMLElement>(".navbar__item", containerRef.current);
+        gsap.fromTo(
+          items,
+          { autoAlpha: 0, y: 8 },
+          { autoAlpha: 1, y: 0, duration: 0.35, stagger: 0.08, ease: "power2.out", overwrite: true },
+        );
+      } else {
+        // already hidden (e.g. first mount) — nothing to animate
+        if (gsap.getProperty(nav, "display") === "none") return;
+        if (reduced) {
+          gsap.set(nav, { display: "none", autoAlpha: 0, height: 0 });
+          return;
+        }
+        gsap.to(nav, {
+          height: 0,
+          autoAlpha: 0,
+          duration: 0.25,
+          ease: "power2.in",
+          overwrite: true,
+          onComplete: () => gsap.set(nav, { display: "none" }),
+        });
+      }
     },
     { dependencies: [open], scope: containerRef },
   );
@@ -84,7 +121,7 @@ export default function Navbar({ open, setOpen }: NavbarProps) {
         {open ? <X size={20} /> : <Menu size={20} />}
       </button>
 
-      <nav id="primary-nav" className={`navbar ${open ? "navbar--open" : ""}`} aria-label="Primary">
+      <nav id="primary-nav" ref={navRef} className="navbar" aria-label="Primary">
         <ul className="navbar__list">
           {links.map((link) => (
             <li key={link.href} className="navbar__item">

@@ -13,16 +13,13 @@
 .navbar {
   order: 3;
   flex-basis: 100%;
+  // GSAP toggles display and animates height for the mobile slide down/up
   display: none;
   flex-direction: column;
   gap: $space-3;
-  padding-block: $space-3;
   border-top: 1px solid $color-border-light;
   background: $color-bg-paper;
-
-  &--open {
-    display: flex;
-  }
+  overflow: hidden;
 
   @include respond-to('md') {
     order: 0;
@@ -31,9 +28,9 @@
     flex-direction: row;
     align-items: center;
     gap: $space-5;
-    padding-block: 0;
     border-top: 0;
     background: transparent;
+    overflow: visible;
   }
 
   &__list {
@@ -41,11 +38,13 @@
     flex-direction: column;
     gap: $space-2;
     list-style: none;
+    padding-block: $space-3;
 
     @include respond-to('md') {
       flex-direction: row;
       align-items: center;
       gap: $space-4;
+      padding-block: 0;
     }
   }
 
