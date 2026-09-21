@@ -1,0 +1,73 @@
+// Pages — Not Found (BEM: not-found)
+// Full-viewport overlay: covers the site header/footer entirely, no navigation.
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.not-found {
+  position: fixed;
+  inset: 0;
+  z-index: $z-modal;
+  @include flex-center;
+  background: $color-header-deep;
+  overflow: hidden;
+  text-align: center;
+  padding: $space-4;
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $space-4;
+    max-width: $measure-base;
+  }
+
+  &__eyebrow {
+    @include text-eyebrow;
+  }
+
+  &__code {
+    @include text-heading(1);
+    font-size: clamp(7rem, 20vw, 18rem);
+    font-weight: 900;
+    line-height: $leading-tight;
+    color: $color-gold;
+    text-shadow: 0 $space-1 rgba($color-gold-light, 0.25);
+  }
+
+  &__text {
+    color: $color-paper;
+    font-size: $font-size-base;
+    line-height: $leading-relaxed;
+    max-width: $measure-narrow;
+
+    @include respond-to('md') {
+      font-size: $font-size-lg;
+    }
+  }
+
+  &__cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: $space-2;
+    padding: $space-3 $space-5;
+    background: $color-gold;
+    color: $color-header-deep;
+    border-radius: $radius-sm;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-bold;
+    letter-spacing: $tracking-wide;
+    text-transform: uppercase;
+    transition: background $transition-fast, transform $transition-fast;
+
+    @include interactive {
+      background: $color-gold-light;
+      transform: translateY(-1px);
+    }
+
+    &:focus-visible {
+      outline: 2px solid $color-gold-light;
+      outline-offset: 2px;
+    }
+  }
+}
