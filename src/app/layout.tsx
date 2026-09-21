@@ -22,7 +22,8 @@ export const metadata: Metadata = {
     url: SITE_URL,
   },
   twitter: {
-    card: "summary_large_image",
+    // TODO: switch back to "summary_large_image" once a 1200x630 OG banner replaces opengraph-image.jpg
+    card: "summary",
   },
   alternates: {
     canonical: "/",
