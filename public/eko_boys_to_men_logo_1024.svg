@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <title>E B 2 M logo</title>
+  <desc>Transparent vector logo based on the supplied Eko Boys To Men emblem.</desc>
+
+  <!-- Outer folded hexagonal ribbon -->
+  <g stroke="none" stroke-linejoin="miter">
+    <!-- left/back purple panel -->
+    <path fill="#55123D" d="M158 235 L245 286 L245 615 L158 566 Z"/>
+    <!-- upper-left orange panel -->
+    <path fill="#FF4B22" d="M245 286 L505 136 L505 245 L345 338 L345 575 L245 615 Z"/>
+    <!-- upper-right purple panel -->
+    <path fill="#55123D" d="M505 136 L793 302 L793 411 L505 245 Z"/>
+    <!-- right/front orange panel -->
+    <path fill="#FF4B22" d="M793 302 L880 251 L880 704 L505 921 L505 812 L793 645 Z"/>
+    <!-- lower-left purple panel -->
+    <path fill="#55123D" d="M158 566 L505 765 L505 921 L158 721 Z"/>
+    <!-- inner orange return panel -->
+    <path fill="#FF4B22" d="M245 615 L345 557 L505 649 L505 765 Z"/>
+    <!-- inner purple return panel -->
+    <path fill="#55123D" d="M505 649 L793 483 L793 645 L505 812 Z"/>
+  </g>
+
+  <!-- Inner hexagonal negative-space field -->
+  <path fill="#FFFFFF" d="M345 338 L505 245 L665 338 L665 520 L505 613 L345 520 Z"/>
+
+  <!-- Lettering, kept bold for small-size legibility -->
+  <g font-family="Arial, Helvetica, sans-serif" font-weight="800" font-size="88" text-anchor="middle" dominant-baseline="middle">
+    <text x="391" y="430" fill="#55123D">E</text>
+    <text x="485" y="430" fill="#FF4B22">B</text>
+    <text x="578" y="430" fill="#55123D">2</text>
+    <text x="672" y="430" fill="#FF4B22">M</text>
+  </g>
+</svg>
