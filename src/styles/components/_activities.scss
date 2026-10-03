@@ -99,6 +99,12 @@
         justify-content: center;
         padding: $space-6;
       }
+
+      // match the cue's inset to this card's larger body padding
+      .activity-card__cue {
+        right: $space-6;
+        bottom: $space-6;
+      }
     }
   }
 }

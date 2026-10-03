@@ -3,6 +3,7 @@
 @use '../abstracts/mixins' as *;
 
 .activity-card {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: $space-3;
@@ -72,5 +73,20 @@
     font-size: $font-size-xs;
     color: $color-muted;
     margin-top: $space-2;
+  }
+
+  // Corner cue — dimmed at rest, sharpens on hover/focus (see cta__card-arrow)
+  &__cue {
+    position: absolute;
+    right: $space-4;
+    bottom: $space-4;
+    color: $color-brand;
+    opacity: 0.55;
+    transition: opacity $transition-fast, transform $transition-fast;
+
+    @include interactive {
+      opacity: 1;
+      transform: translate(2px, -2px);
+    }
   }
 }

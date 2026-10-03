@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 import type { Activity } from "@/schemas/activity.schema";
 import { formatDate } from "@/lib/format";
 
@@ -26,6 +27,7 @@ export default function ActivityCard({ activity }: ActivityCardProps) {
           {formatDate(date)}
         </time>
       </div>
+      <ArrowUpRight aria-hidden="true" className="activity-card__cue" size={16} />
     </Link>
   );
 }
