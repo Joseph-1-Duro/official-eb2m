@@ -3,6 +3,7 @@ import Marquee from "@/ui/components/Marquee";
 import Hero from "./_section/Hero";
 import Mission from "./_section/Mission";
 import HighlightSection from "./_section/HighlightSection";
+import UpcomingEvents from "./_section/UpcomingEvents";
 import Activities from "./_section/Activities";
 
 export const metadata: Metadata = {
@@ -25,6 +26,7 @@ export default function Home() {
       <Hero />
       <HighlightSection />
       <Mission />
+      <UpcomingEvents />
       <Marquee />
       <Activities />
     </>
