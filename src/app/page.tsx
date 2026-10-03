@@ -4,7 +4,6 @@ import Hero from "./_section/Hero";
 import Mission from "./_section/Mission";
 import HighlightSection from "./_section/HighlightSection";
 import Activities from "./_section/Activities";
-import CTA from "./_section/CTA";
 
 export const metadata: Metadata = {
   title: "Eko Boys To Men Association — Together 4 Ever",
@@ -28,7 +27,6 @@ export default function Home() {
       <Mission />
       <Marquee />
       <Activities />
-      <CTA />
     </>
   )
 }
