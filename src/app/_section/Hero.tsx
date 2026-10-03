@@ -58,10 +58,16 @@ export default function Hero() {
             We are an association of distinguished individuals committed to mobilizing resources to support essential needs for Lagos Island residents, particularly students, through sustained funding
             and educational grants.
           </p>
-          <Link href="/members" className="hero__cta">
-            Discover Our Platform
-            <ArrowUpRight aria-hidden size={16} />
-          </Link>
+          <div className="hero__actions">
+            <Link href="/members" className="hero__cta">
+              Discover Our Platform
+              <ArrowUpRight aria-hidden size={16} />
+            </Link>
+            <Link href="/join" className="hero__cta hero__cta--secondary">
+              Become a Member
+              <ArrowUpRight aria-hidden size={16} />
+            </Link>
+          </div>
         </div>
 
         <div className="hero__media">

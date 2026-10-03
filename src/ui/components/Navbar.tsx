@@ -10,6 +10,7 @@ const links = [
   { href: "/", label: "Home" },
   { href: "/activities", label: "Activities" },
   { href: "/members", label: "Members" },
+  { href: "/join", label: "Join Us" },
 ];
 
 type NavbarProps = {

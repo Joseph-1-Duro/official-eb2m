@@ -24,6 +24,10 @@ export default function Footer() {
           </li>
           <li className="footer__nav-item">
             <ArrowUpRight aria-hidden="true" className="footer__arrow" size={20} />
+            <Link href="/join" className="footer__link">Join Us</Link>
+          </li>
+          <li className="footer__nav-item">
+            <ArrowUpRight aria-hidden="true" className="footer__arrow" size={20} />
             <Link href="/contact" className="footer__link">Contact</Link>
           </li>
         </ul>

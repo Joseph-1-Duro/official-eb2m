@@ -1,0 +1,97 @@
+// Components — Join Criteria (BEM: join-criteria)
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.join-criteria {
+  background: $color-bg-paper;
+  padding-block: $space-7;
+  border-top: 1px solid $color-border-light;
+
+  @include respond-to('md') {
+    padding-block: $space-8;
+  }
+
+  &__inner {
+    @include container;
+    display: flex;
+    flex-direction: column;
+    gap: $space-6;
+  }
+
+  &__intro {
+    display: flex;
+    flex-direction: column;
+    gap: $space-3;
+    max-width: $measure-base;
+  }
+
+  &__eyebrow {
+    @include text-eyebrow;
+  }
+
+  &__title {
+    @include text-heading(2);
+    color: $color-header;
+  }
+
+  &__copy {
+    @include text-body-long;
+    color: $color-muted;
+  }
+
+  &__list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: $space-4;
+    margin: 0;
+    padding: 0;
+
+    @include respond-to('lg') {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: $space-4;
+    }
+  }
+
+  &__item {
+    display: flex;
+    gap: $space-3;
+    align-items: flex-start;
+    background: $color-surface;
+    border: 1px solid $color-border-light;
+    border-radius: $radius-md;
+    padding: $space-4;
+
+    @include respond-to('md') {
+      padding: $space-5;
+      gap: $space-4;
+    }
+  }
+
+  &__index {
+    flex-shrink: 0;
+    font-family: var(--font-zilla);
+    font-size: $font-size-xl;
+    font-weight: $font-weight-bold;
+    line-height: $leading-snug;
+    color: $color-brand;
+    min-width: 2.5rem;
+  }
+
+  &__text {
+    @include text-body;
+    color: $color-paragraphs;
+    margin: 0;
+  }
+
+  &__strong {
+    font-weight: $font-weight-bold;
+    color: $color-header-deep;
+    background: $color-paper;
+    border: 1px solid $color-border-light;
+    border-radius: $radius-sm;
+    padding: 0.05em 0.35em;
+    white-space: normal;
+  }
+}
