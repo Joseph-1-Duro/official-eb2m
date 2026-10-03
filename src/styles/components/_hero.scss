@@ -6,15 +6,43 @@
   background: $color-bg-paper;
   padding-block: $space-6 $space-7;
   overflow: hidden;
+  position: relative;
 
   @include respond-to('md') {
     padding-block: $space-8;
+  }
+
+  // Faint brand mark anchored centre-right. The filter lives on the
+  // pseudo-element so it never touches .hero__inner, and grayscale flattens
+  // the two brand colours plus the white inner field into a single neutral
+  // tone — at 0.5% it sits just above the paper, not enough to read as a second
+  // logo. pointer-events keeps it off the hero CTA; z-index 0 keeps it behind
+  // .hero__inner.
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 0;
+    translate: 0 -50%;
+    z-index: 0;
+    width: min(34rem, 74vw);
+    aspect-ratio: 1;
+    background: url('/eko_boys_to_men_logo_1024.svg') center / contain no-repeat;
+    filter: grayscale(1);
+    opacity: 0.005;
+    pointer-events: none;
+
+    @include respond-to('lg') {
+      width: min(46rem, 46vw);
+    }
   }
 
   &__inner {
     @include container;
     display: grid;
     gap: $space-8;
+    position: relative;
+    z-index: 1;
   }
 
   &__text {
