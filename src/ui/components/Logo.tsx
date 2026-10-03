@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import logo from '../../../public/logo48.png'
+import logo from '../../../public/logo64.png'
 
 type LogoProps = {
   onClick?: () => void;
@@ -11,7 +11,7 @@ type LogoProps = {
 export default function Logo({ onClick }: LogoProps) {
   return (
     <Link href="/" className="logo" onClick={onClick}>
-      <Image src={logo} alt="Logo" height={48} width={48} />
+      <Image src={logo} alt="Logo" height={64} width={64} />
     </Link>
   )
 }
