@@ -87,7 +87,7 @@ const HighlightSection = () => {
         <div className="highlights__intro" data-reveal>
           <p className="highlights__eyebrow">Who we are</p>
           <h2 id="highlights-title" className="highlights__title">
-            Our Vision &amp; Mission
+            Our Brief History
           </h2>
         </div>
 
