@@ -3,7 +3,7 @@ import path from "node:path";
 import { cache } from "react";
 import matter from "gray-matter";
 import { activitySchema, type Activity } from "@/schemas/activity.schema";
-import { memberSchema, type Member } from "@/schemas/member.schema";
+import { memberPositionRank, memberSchema, type Member } from "@/schemas/member.schema";
 
 const activitiesDir = path.join(process.cwd(), "src/content/activities");
 const membersDir = path.join(process.cwd(), "src/content/members");
@@ -68,7 +68,10 @@ export const getAllMembers = cache(
       members.push({ slug, body: content, ...parsed.data });
     }
 
-    return members;
+    return [...members].sort((a, b) => {
+      const byPosition = memberPositionRank(a.position) - memberPositionRank(b.position);
+      return byPosition !== 0 ? byPosition : a.name.localeCompare(b.name);
+    });
   },
 );
 

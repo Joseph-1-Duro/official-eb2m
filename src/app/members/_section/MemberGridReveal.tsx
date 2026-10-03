@@ -61,7 +61,7 @@ export default function MemberGridReveal({ members }: MemberGridRevealProps) {
           </div>
           <div className="member-grid__body">
             <h3 className="member-grid__name">{member.name}</h3>
-            <p className="member-grid__role">{member.role}</p>
+            <p className="member-grid__position">{member.position ?? member.role}</p>
             {member.set ? <span className="member-grid__set">Set {member.set}</span> : null}
           </div>
         </Link>
