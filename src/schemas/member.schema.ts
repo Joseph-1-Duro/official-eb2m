@@ -8,6 +8,7 @@ import { z } from "zod";
  */
 export const MEMBER_POSITION_ORDER = [
   "President",
+  "Secretary",
   "Vice President",
   "General Secretary",
   "Assistant General Secretary",
