@@ -4,16 +4,16 @@
 
 .card {
   background: $color-surface;
-  border: 1px solid $color-border;
+  border: 1px solid $color-on-surface-border;
   border-radius: $radius-lg;
   padding: $space-4;
 
   &__title {
     font-size: $font-size-xl;
-    color: $color-header;
+    color: $color-on-surface-strong;
   }
 
   &__body {
-    color: $color-paragraphs;
+    color: $color-on-surface;
   }
 }

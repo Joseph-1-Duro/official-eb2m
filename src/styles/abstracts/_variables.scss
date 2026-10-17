@@ -5,24 +5,55 @@
 // =============================================================================
 
 // ----- Colors -----
-$color-ink: #17212b;
-$color-muted: #5f6b76;
-$color-paper: #f8f6f1;
-$color-bg-paper: #fdfbf7;
-$color-surface: #ffffff;
+// Brand palette — 60-30-10
+//   60%  $color-brand   (#622d45) page / section background
+//   30%  $color-surface (#f0f5fa) nav, cards, forms, light bands
+//   10%  $color-footer-bg + gold  footer/navy accents + detail
+//
+// The page is a dark plum, so the text tokens below are the *on-plum*
+// palette; light surfaces ($color-surface) retint them with the
+// $color-on-surface-* tokens in their own partials.
 
-$color-brand: #0f5b4d;
-$color-brand-dark: #0a3f35;
-$color-brand-light: #14a085;
+// Text on the plum background
+$color-header: #f6eef2;      // headings / strong text on plum
+$color-paragraphs: #e9dfe4;  // body on plum
+$color-muted: #b9aab2;       // muted on plum
+$color-ink: #17212b;         // darkest — shadows, dark text on light surfaces
 
-$color-header: #1b2a47;
+// Surfaces
+$color-surface: #f0f5fa;     // light surface (30%) — nav, cards, forms
+$color-paper: #e6edf4;       // card-on-card / chips
+$color-bg: #622d45;          // page + section background (60%)
+
+// Text on light ($color-surface) areas — used inside cards, bands, forms
+$color-on-surface-strong: #1b2a47;
+$color-on-surface: #2d3142;
+$color-on-surface-muted: #5f6b76;
+$color-on-surface-border: #d9dedb;
+
+// Brand
+$color-brand: #622d45;
+$color-brand-dark: #4a2134;
+$color-brand-light: #7d3f5a;
+
+// Navy accent — footer stays; reusable for bands / dark UI
+$color-footer-bg: #1b2a47;
 $color-header-deep: #0f1a33;
-$color-paragraphs: #2d3142;
+
+// Gold detail
 $color-gold: #b89047;
 $color-gold-light: #d4a85c;
 
-$color-border: #d9dedb;
-$color-border-light: #e8ecea;
+// Links / CTAs that sit directly on the plum background. Brand-on-brand
+// is invisible, so on-plum links are gold and on-plum CTAs invert to
+// the light surface.
+$color-link-on-brand: $color-gold-light;
+$color-link-on-brand-hover: #e6c078;
+
+// Depth / borders
+$color-bg-elevated: rgba(#ffffff, 0.04); // subtle section wash on plum
+$color-border: rgba(#ffffff, 0.22);
+$color-border-light: rgba(#ffffff, 0.12);
 
 // ----- Brand gradients -----
 // CTA social link cards (Facebook / Instagram)
@@ -110,8 +141,7 @@ $z-overlay: 200;
 $z-modal: 300;
 
 
-// brand-new-color
-// #50183b
+// Brand color: #622d45 (supersedes the #50183b draft in proposal 002)
 
 // the facebook link
 // https://www.facebook.com/profile.php?id=100086314067990

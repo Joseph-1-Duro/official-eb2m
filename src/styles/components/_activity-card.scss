@@ -8,19 +8,19 @@
   flex-direction: column;
   gap: $space-3;
   background: $color-surface;
-  border: 1px solid $color-border-light;
+  border: 1px solid $color-on-surface-border;
   border-radius: $radius-sm;
   overflow: hidden;
   text-decoration: none;
   transition: border-color $transition-fast, transform $transition-fast;
 
   @include interactive {
-    border-color: $color-border;
+    border-color: $color-on-surface-muted;
     transform: translateY(-2px);
   }
 
   &:focus-visible {
-    outline: 2px solid $color-brand;
+    outline: 2px solid $color-link-on-brand;
     outline-offset: 2px;
   }
 
@@ -28,7 +28,7 @@
     display: block;
     aspect-ratio: 16 / 10;
     overflow: hidden;
-    background: $color-border-light;
+    background: $color-paper;
   }
 
   &__image {
@@ -57,7 +57,7 @@
     font-size: $font-size-2xl;
     line-height: $leading-snug;
     font-weight: $font-weight-bold;
-    color: $color-header;
+    color: $color-on-surface-strong;
     letter-spacing: $tracking-tight;
     margin-block-end: $space-1;
   }
@@ -65,13 +65,13 @@
   &__excerpt {
     font-size: $font-size-sm;
     line-height: $leading-normal;
-    color: $color-muted;
+    color: $color-on-surface-muted;
     @include line-clamp(2);
   }
 
   &__date {
     font-size: $font-size-xs;
-    color: $color-muted;
+    color: $color-on-surface-muted;
     margin-top: $space-2;
   }
 

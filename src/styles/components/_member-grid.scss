@@ -12,7 +12,7 @@
 
   &__title {
     @include text-heading(2);
-    color: $color-header;
+    color: $color-on-surface-strong;
     margin-bottom: $space-6;
   }
 
@@ -26,7 +26,7 @@
     display: block;
     background: $color-paper;
     overflow: hidden;
-    border: 1px solid $color-border-light;
+    border: 1px solid $color-on-surface-border;
     border-radius: $radius-sm;
     box-shadow: 0 4px 14px rgba($color-ink, 0.08);
     transition: transform $transition-fast, box-shadow $transition-fast;
@@ -61,26 +61,26 @@
     font-size: $font-size-xl;
     line-height: $leading-snug;
     font-weight: $font-weight-bold;
-    color: $color-header;
+    color: $color-on-surface-strong;
     letter-spacing: $tracking-tight;
     margin-block-end: $space-1;
   }
 
   &__position {
     font-size: $font-size-sm;
-    color: $color-muted;
+    color: $color-on-surface-muted;
   }
 
   &__set {
     display: inline-flex;
     margin-top: $space-2;
     padding: $space-1 $space-3;
-    border: 1px solid $color-border;
+    border: 1px solid $color-on-surface-border;
     border-radius: $radius-full;
     font-size: $font-size-xs;
     font-weight: $font-weight-semibold;
     letter-spacing: $tracking-wide;
-    color: $color-muted;
+    color: $color-on-surface-muted;
   }
 }
 

@@ -3,7 +3,7 @@
 @use '../abstracts/mixins' as *;
 
 .cta {
-  background: $color-bg-paper;
+  background: $color-bg;
   padding-block: $space-7;
 
   @include respond-to('md') {

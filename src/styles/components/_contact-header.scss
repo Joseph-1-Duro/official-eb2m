@@ -3,7 +3,7 @@
 @use '../abstracts/mixins' as *;
 
 .contact-header {
-  background: $color-bg-paper;
+  background: $color-bg;
   padding-block: $space-7;
   overflow: hidden;
 
@@ -70,11 +70,11 @@
     transition: color $transition-fast;
 
     @include interactive {
-      color: $color-brand;
+      color: $color-link-on-brand;
     }
 
     &:focus-visible {
-      outline: 2px solid $color-brand;
+      outline: 2px solid $color-link-on-brand;
       outline-offset: 2px;
     }
   }

@@ -21,7 +21,7 @@
 }
 
 .highlights {
-  background: $color-bg-paper;
+  background: $color-bg-elevated;
   padding-block: $space-7;
   overflow: hidden;
 
@@ -74,7 +74,7 @@
     gap: $space-3;
     padding: $space-5;
     background: $color-surface;
-    border: 1px solid $color-border-light;
+    border: 1px solid $color-on-surface-border;
     border-radius: $radius-lg;
     transition: border-color $transition-base;
 
@@ -126,7 +126,7 @@
     line-height: $leading-snug;
     font-weight: $font-weight-bold;
     letter-spacing: $tracking-tight;
-    color: $color-header;
+    color: $color-on-surface-strong;
     padding-bottom: $space-2;
     margin-block-end: $space-1;
 
@@ -147,7 +147,7 @@
     position: relative;
     z-index: 2;
     @include text-body;
-    color: $color-muted;
+    color: $color-on-surface-muted;
   }
 
   // ----- Image tiles -----
@@ -156,9 +156,9 @@
     overflow: hidden;
     grid-column: span 1;
     aspect-ratio: 4 / 5;
-    border: 1px solid $color-border-light;
+    border: 1px solid $color-on-surface-border;
     border-radius: $radius-lg;
-    background: $color-border-light;
+    background: $color-paper;
   }
 
   &__media--wide {

@@ -3,7 +3,7 @@
 @use '../abstracts/mixins' as *;
 
 .map-ui {
-  background: $color-bg-paper;
+  background: $color-bg;
   border-block: 1px solid $color-border-light;
 
   &__bar {
@@ -31,16 +31,16 @@
     gap: $space-1;
     font-size: $font-size-sm;
     font-weight: $font-weight-semibold;
-    color: $color-brand;
+    color: $color-link-on-brand;
     white-space: nowrap;
     transition: color $transition-fast;
 
     @include interactive {
-      color: $color-brand-dark;
+      color: $color-link-on-brand-hover;
     }
 
     &:focus-visible {
-      outline: 2px solid $color-brand;
+      outline: 2px solid $color-link-on-brand;
       outline-offset: 2px;
     }
   }

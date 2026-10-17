@@ -19,11 +19,11 @@
     margin-bottom: $space-6;
 
     @include interactive {
-      color: $color-brand;
+      color: $color-link-on-brand;
     }
 
     &:focus-visible {
-      outline: 2px solid $color-brand;
+      outline: 2px solid $color-link-on-brand;
       outline-offset: 2px;
     }
   }
@@ -86,12 +86,12 @@
     }
 
     a {
-      color: $color-brand;
+      color: $color-link-on-brand;
       text-decoration: underline;
       text-underline-offset: 2px;
 
       @include interactive {
-        color: $color-brand-dark;
+        color: $color-link-on-brand-hover;
       }
     }
 
@@ -167,7 +167,7 @@
   }
 
   tbody tr:nth-child(even) {
-    background: $color-bg-paper;
+    background: $color-bg-elevated;
   }
 }
 
@@ -208,11 +208,11 @@
   flex-direction: column;
   gap: $space-1;
   min-width: 0;
-  color: $color-brand;
+  color: $color-link-on-brand;
   font-size: $font-size-sm;
 
   @include interactive {
-    color: $color-brand-dark;
+    color: $color-link-on-brand-hover;
 
     .article__nav-title {
       text-decoration: underline;
@@ -221,7 +221,7 @@
   }
 
   &:focus-visible {
-    outline: 2px solid $color-brand;
+    outline: 2px solid $color-link-on-brand;
     outline-offset: 2px;
   }
 

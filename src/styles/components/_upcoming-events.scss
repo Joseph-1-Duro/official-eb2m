@@ -34,7 +34,7 @@
 
   &__title {
     @include text-heading(2);
-    color: $color-header;
+    color: $color-on-surface-strong;
   }
 
   &__body {
@@ -48,7 +48,7 @@
     display: grid;
     gap: $space-4;
     background: $color-paper;
-    border: 1px solid $color-border-light;
+    border: 1px solid $color-on-surface-border;
     border-radius: $radius-sm;
     padding: $space-5;
 
@@ -70,7 +70,7 @@
     gap: $space-1;
     min-width: 5.5rem;
     padding: $space-3 $space-2;
-    border: 1px solid $color-border-light;
+    border: 1px solid $color-on-surface-border;
     border-top: 2px solid $color-gold;
     border-radius: $radius-sm;
     background: $color-surface;
@@ -82,7 +82,7 @@
     line-height: $leading-tight;
     font-weight: $font-weight-extrabold;
     letter-spacing: $tracking-tight;
-    color: $color-header;
+    color: $color-on-surface-strong;
   }
 
   &__date-month {
@@ -96,7 +96,7 @@
   &__date-year {
     font-size: $font-size-xs;
     letter-spacing: $tracking-wide;
-    color: $color-muted;
+    color: $color-on-surface-muted;
   }
 
   &__featured-body {
@@ -107,20 +107,20 @@
 
   &__featured-title {
     @include text-heading(3);
-    color: $color-header;
+    color: $color-on-surface-strong;
   }
 
   &__meta {
     font-size: $font-size-sm;
     font-weight: $font-weight-semibold;
     letter-spacing: $tracking-wide;
-    color: $color-muted;
+    color: $color-on-surface-muted;
   }
 
   &__summary {
     font-size: $font-size-sm;
     line-height: $leading-normal;
-    color: $color-paragraphs;
+    color: $color-on-surface;
     max-width: $measure-base;
   }
 
@@ -157,10 +157,10 @@
   &__article {
     margin-top: $space-4;
     padding-top: $space-4;
-    border-top: 1px solid $color-border-light;
+    border-top: 1px solid $color-on-surface-border;
     max-width: $measure-base;
     @include text-body-long;
-    color: $color-paragraphs;
+    color: $color-on-surface;
 
     p {
       margin-bottom: $space-4;
@@ -168,13 +168,13 @@
 
     h2 {
       @include text-heading(2);
-      color: $color-header;
+      color: $color-on-surface-strong;
       margin-block: $space-6 $space-3;
     }
 
     h3 {
       @include text-heading(3);
-      color: $color-header;
+      color: $color-on-surface-strong;
       margin-block: $space-5 $space-3;
     }
 
@@ -193,12 +193,12 @@
       padding-left: $space-4;
       margin-block: $space-5;
       font-style: italic;
-      color: $color-muted;
+      color: $color-on-surface-muted;
     }
 
     hr {
       border: none;
-      border-top: 1px solid $color-border-light;
+      border-top: 1px solid $color-on-surface-border;
       margin-block: $space-6;
     }
   }
@@ -210,7 +210,7 @@
     list-style: none;
     margin: 0;
     padding: 0;
-    border-top: 1px solid $color-border-light;
+    border-top: 1px solid $color-on-surface-border;
   }
 
   &__row {
@@ -219,7 +219,7 @@
     align-items: baseline;
     gap: $space-2 $space-4;
     padding-block: $space-3;
-    border-bottom: 1px solid $color-border-light;
+    border-bottom: 1px solid $color-on-surface-border;
 
     @include respond-to('md') {
       grid-template-columns: 8rem 1fr auto;
@@ -237,7 +237,7 @@
     font-family: var(--font-zilla);
     font-size: $font-size-lg;
     font-weight: $font-weight-bold;
-    color: $color-header;
+    color: $color-on-surface-strong;
   }
 
   &__row-month {
@@ -250,19 +250,19 @@
 
   &__row-year {
     font-size: $font-size-xs;
-    color: $color-muted;
+    color: $color-on-surface-muted;
   }
 
   &__row-title {
     font-size: $font-size-sm;
     font-weight: $font-weight-semibold;
-    color: $color-header;
+    color: $color-on-surface-strong;
   }
 
   &__row-meta {
     grid-column: 2;
     font-size: $font-size-xs;
-    color: $color-muted;
+    color: $color-on-surface-muted;
 
     @include respond-to('md') {
       grid-column: auto;
@@ -278,7 +278,7 @@
     flex-direction: column;
     gap: $space-3;
     padding: $space-5;
-    border: 1px solid $color-border-light;
+    border: 1px solid $color-on-surface-border;
     border-left: 2px solid $color-gold;
     border-radius: $radius-sm;
     background: $color-paper;
@@ -287,7 +287,7 @@
   &__empty-note {
     font-size: $font-size-sm;
     line-height: $leading-normal;
-    color: $color-paragraphs;
+    color: $color-on-surface;
   }
 
   &__empty-links {

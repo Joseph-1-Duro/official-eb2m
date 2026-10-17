@@ -3,7 +3,7 @@
 @use '../abstracts/mixins' as *;
 
 .member-bio {
-  background: $color-bg-paper;
+  background: $color-bg;
   padding-block: $space-7;
 
   @include respond-to('md') {
@@ -23,7 +23,7 @@
     margin-bottom: $space-6;
 
     @include interactive {
-      color: $color-brand;
+      color: $color-link-on-brand;
     }
   }
 
@@ -48,7 +48,7 @@
     aspect-ratio: 1;
     overflow: hidden;
     border-radius: $radius-sm;
-    background: $color-border-light;
+    background: $color-paper;
 
     @include respond-to('lg') {
       flex: 0 0 38%;
@@ -67,7 +67,7 @@
     font-family: var(--font-zilla);
     font-size: $font-size-4xl;
     font-weight: $font-weight-bold;
-    color: $color-header;
+    color: $color-on-surface-strong;
     background: $color-paper;
   }
 

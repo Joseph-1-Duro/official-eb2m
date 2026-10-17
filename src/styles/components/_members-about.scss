@@ -3,7 +3,7 @@
 @use '../abstracts/mixins' as *;
 
 .members-about {
-  background: $color-bg-paper;
+  background: $color-bg;
   padding-block: $space-7;
   border-top: 1px solid $color-border-light;
 
@@ -106,21 +106,22 @@
     gap: $space-1;
     align-self: flex-start;
     padding: $space-3 $space-5;
-    background: $color-brand;
-    color: $color-surface;
+    background: $color-surface;
+    color: $color-brand;
     border-radius: $radius-sm;
     font-size: $font-size-sm;
     font-weight: $font-weight-semibold;
     line-height: 1;
-    transition: background $transition-fast, transform $transition-fast;
+    transition: background $transition-fast, color $transition-fast, transform $transition-fast;
 
     @include interactive {
-      background: $color-brand-dark;
+      background: $color-paper;
+      color: $color-brand-dark;
       transform: translateY(-1px);
     }
 
     &:focus-visible {
-      outline: 2px solid $color-brand;
+      outline: 2px solid $color-link-on-brand;
       outline-offset: 2px;
     }
   }

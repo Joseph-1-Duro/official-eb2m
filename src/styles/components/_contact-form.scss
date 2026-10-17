@@ -3,7 +3,7 @@
 @use '../abstracts/mixins' as *;
 
 .contact-form {
-  background: $color-bg-paper;
+  background: $color-bg-elevated;
   padding-block: $space-7;
   accent-color: $color-gold;
 
@@ -54,7 +54,7 @@
   &__textarea {
     width: 100%;
     padding: $space-2 $space-3;
-    border: 1px solid $color-border;
+    border: 1px solid $color-on-surface-border;
     border-radius: $radius-sm;
     font-family: var(--font-jakarta);
     font-size: $font-size-base;
@@ -86,12 +86,16 @@
 
   &__error {
     font-size: $font-size-sm;
-    color: $color-brand;
+    color: $color-link-on-brand;
   }
 
   &__submit {
     grid-column: 1 / -1;
     width: 100%;
     gap: $space-2;
+    // The form sits on the plum page, so the primary button inverts to
+    // the light surface instead of the (invisible) brand fill.
+    background: $color-surface;
+    color: $color-brand;
   }
 }

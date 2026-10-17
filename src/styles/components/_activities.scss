@@ -3,7 +3,7 @@
 @use '../abstracts/mixins' as *;
 
 .activities {
-  background: $color-bg-paper;
+  background: $color-bg;
   padding-block: $space-7;
 
   @include respond-to('md') {
@@ -31,7 +31,7 @@
     display: inline-flex;
     align-items: center;
     gap: $space-1;
-    color: $color-brand;
+    color: $color-link-on-brand;
     font-size: $font-size-sm;
     font-weight: $font-weight-semibold;
     line-height: 1;
@@ -40,12 +40,12 @@
     transition: color $transition-fast, gap $transition-fast;
 
     @include hover {
-      color: $color-brand-dark;
+      color: $color-link-on-brand-hover;
       gap: $space-2;
     }
 
     &:focus-visible {
-      outline: 2px solid $color-brand;
+      outline: 2px solid $color-link-on-brand;
       outline-offset: 2px;
       border-radius: $radius-sm;
     }
