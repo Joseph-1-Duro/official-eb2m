@@ -20,7 +20,7 @@
     "react-dom": "19.3.0",
     "react-hook-form": "^7.88.0",
     "remark-gfm": "^4.0.1",
-    "yet-another-react-lightbox": "^3.32.2",
+    "yet-another-react-lightbox": "^3.33.0",
     "zod": "^4.6.5"
   },
   "devDependencies": {
